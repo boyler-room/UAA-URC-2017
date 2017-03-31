@@ -192,6 +192,6 @@ void ofApp::loadConfig()
 	}else{
 		cout << "Error loading config\n";
 		fcon.open("ip.cfg", ios::out);
-		if(fcon.is_open()) fcon << roverAddress <<'\n'<< tcpPort <<'\n'<< streamPort '\n' << modPort;
+		if(fcon.is_open()) fcon << roverAddress <<'\n'<< tcpPort <<'\n'<< streamPort << '\n' << modPort;
 	}fcon.close();
 }
