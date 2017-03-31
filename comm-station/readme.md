@@ -6,7 +6,7 @@ Requires:
 * [ofxGuiExtended addon](https://github.com/frauzufall/ofxGuiExtended)
 * [ofxIPVideoGrabber addon](https://github.com/bakercp/ofxIpVideoGrabber)
 
-In addition, to compile the lib and include paths for Poco have to be manually added and in IPVideoGrabber::draw() all instances of vec3 must be replaced with vec2
+In addition, to compile add the lib and include paths for Poco have to be manually added and in IPVideoGrabber::draw() all instances of vec3 must be replaced with vec2
 
 ## Usage
 ip.cfg contains rover ip, rover tcp port, stream base port, and module manager tcp port. If not present it is generated with defaults.
