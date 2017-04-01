@@ -8,3 +8,6 @@ Interface to control rover applications via TCP.
 * `startall`		Start all modules.
 * `stopall`			Stop all modules.
 * `queryall`		Request status of all modules.
+
+Modules are added as entries to the `modlist` dictionary in modman.py:
+	`module name:[[module executable and arguments]]`
