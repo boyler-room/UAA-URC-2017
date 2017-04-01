@@ -1,5 +1,4 @@
 # Ground Station Application
-description
 
 ## Installation
 Requires:
@@ -23,4 +22,4 @@ ip.cfg contains rover ip, rover tcp port, stream base port, and module manager t
 2. Arm panel: 
 3. Streams: Arrows on right and left of main view switch between cameras.
 4. Drive panel: 
-5. Rover Connection panel: module manager console accepts `start`, `stop`, and `query` and `startall`, `stopall`, and `queryall`. `queryall` can be used to list available modules.
+5. Rover Connection panel: see [modman documentation](../modman/).
