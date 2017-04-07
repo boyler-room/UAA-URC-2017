@@ -162,7 +162,6 @@ void ofApp::streamInit()
 	for (int i = 0; i < camct; i++) {
 		delete streamGrabber[i];
 		streamGrabber[i]=new ofx::Video::IPVideoGrabber();
-		//streamGrabber[i]->setURI(suri[i]);
 		streamGrabber[i]->setURI("http://"+roverAddress+":"+to_string(streamPort+i)+"/?action=stream");
 		streamGrabber[i]->connect();
 
@@ -178,8 +177,6 @@ void ofApp::gamepadInit()
 	if(gamepadConnected = gamepad.Refresh()){
 		std::cout << "Controller connected on port " << gamepad.GetPort() << std::endl;
 		gpcurr.setstate(gamepad);
-	}else {
-		std::cout << "Please connect Xbox 360 controller." << std::endl;
 	}
 }
 

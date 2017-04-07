@@ -99,7 +99,6 @@ public:
 	ofxGuiGraphics* maincamhandle;
 	int mainpt = 0;
 	ofx::Video::IPVideoGrabber* streamGrabber[camct];
-	//string suri[camct] = { "http://lwsnb160-cam.cs.purdue.edu/mjpg/video.mjpg", "http://195.200.199.8/axis-cgi/mjpg/video.cgi", "", "http://195.200.199.8/axis-cgi/mjpg/video.cgi" };
 	void streamConnect();
 	void camprev();
 	void camnext();
@@ -111,6 +110,7 @@ public:
 
 	//GUI
 	float aspect_ratio, haspectrat;
+	ofImage hand;
 	map<string, ofxGuiPanel*> panels;
 	map<string, panel_dimensions> panels_info;
 	ofxGui gui;
@@ -118,7 +118,6 @@ public:
 	//gui groups
 	ofxGuiGroup *arm_FK, *arm_IK;
 	ofxGuiGroup *hand_control, *hand_image;
-	ofImage hand;
 	ofxGuiGroup *strm, *tcp, *modprompt;
 	ofxGuiContainer *ip;
 	ofxGuiContainer *main_Camera, *other_Cameras;

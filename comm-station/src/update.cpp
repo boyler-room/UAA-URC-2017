@@ -41,9 +41,7 @@ void ofApp::commandSent()
 		}
 		modClient.send("close");
 		modClient.close();
-	}
-	else
-		log[4] = "Error Connecting To Module Manager!";
+	}else log[4] = "Error Connecting To Module Manager!";
 	prompt = "";
 }
 
@@ -72,18 +70,15 @@ void ofApp::guiLoop()
 
 void ofApp::tcpLoop()
 {
-	//string msg = "woop";
 	static uint64_t dt;
 	if (roh.fwd_x != 50.0) cout << roh.fwd_x << "\n";
 
 	if (tcpConnected = tcpClient.isConnected()) {
-		//tcpClient.send(msg);
 		//tcpClient.send(request);
-		//msg = tcpClient.receive();
-		//get robot state
+		//tcpClient.receive();
+		//get rover state
 		if(gpcurr.compare(gplast)){
-			tcpClient.send(to_string(gpcurr.lsticky) + to_string(gpcurr.rsticky));
-			//tcpClient.send(msg);
+			tcpClient.send(to_string((int)((gpcurr.lsticky+1)*(255)/(2))) + " " + to_string((int)((gpcurr.rsticky+1)*(255)/(2))));
 			//send gamepad state
 		}
 	}
@@ -104,11 +99,19 @@ void ofApp::streamLoop()
 
 void ofApp::gamepadLoop()
 {
+	static bool msgdisplayed;
 	if(gamepadConnected = gamepad.Refresh()){
+		if(msgdisplayed){
+			std::cout << "Controller connected on port " << gamepad.GetPort() << std::endl;
+			msgdisplayed = false;
+		}
 		gplast = gpcurr;
 		gpcurr.setstate(gamepad);
 		if(gpcurr.compare(gplast)){
 			cout << gpcurr.display();
 		}
+	}else if(!msgdisplayed){
+		std::cout << "Please connect Xbox 360 controller." << std::endl;
+		msgdisplayed = true;
 	}
 }
